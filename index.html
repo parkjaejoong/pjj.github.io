@@ -561,7 +561,7 @@ document.querySelectorAll('.project-card').forEach(card => {
       targetContent.classList.add('active', 'animate-fade-in-up');
 
       // 화면 너비 600px 이하일 때 스크롤
-      if (window.innerWidth <= 650) {
+      if (window.innerWidth <= 1000) {
         setTimeout(() => {
           const offset = targetContent.getBoundingClientRect().top + window.scrollY - 120;
           window.scrollTo({ top: offset, behavior: 'smooth' });
@@ -1317,6 +1317,13 @@ section{
     .menubar {
         justify-content: center;
     }
+
+    .project-wrapper {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+    }     
 }
 /* 반응형 기본 설정 */
 @media (max-width: 768px) {
@@ -1388,12 +1395,6 @@ section{
       }
 
 
-    .project-wrapper {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        flex-direction: column;
-    } 
     .project-detail-container {
       width: auto !important;
       padding: 20px;
