@@ -1260,6 +1260,31 @@ section{
   line-height: 1.6;
 }
 
+/*스크롤바*/
+::-webkit-scrollbar {
+  width: 8px; 
+  height: 8px;
+}
+
+/* 배경 */
+::-webkit-scrollbar-track {
+  background: var(--mian-background); 
+  border-radius: 10px;
+}
+
+/* 핸들  */
+::-webkit-scrollbar-thumb {
+  background: var(--main-blue);
+  border-radius: 10px;
+}
+
+/* 핸들 hover  */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(0, 179, 255);
+}
+
+
+    
 /* 애니메이션 keyframes */
 /*1*/
 @keyframes slideInLeft {
@@ -1311,6 +1336,10 @@ section{
 
 
 @media (max-width: 1000px) {
+    ::-webkit-scrollbar {
+        width: 0px; 
+        height: 0px; 
+    }
     img.logoimg {
         display: none;
     }
