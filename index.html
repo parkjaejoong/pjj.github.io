@@ -525,7 +525,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const introbox  = document.querySelectorAll(".intro-box");
   const stitle  = document.querySelectorAll(".section-title");
   const mainbnnset  = document.getElementById("basic");
-
+  const meimg  = document.getElementById("meimg");
 
   if (!togglesw || !logoImg) return;
 
@@ -534,8 +534,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.body.classList.toggle("yesf", isOn);
     menubdv.classList.toggle("yeslast", isOn);
- 
-
+    
     //아이디 찾아서
     ba.classList.toggle("yesfont", isOn);
     ba1.classList.toggle("yesfont", isOn);
@@ -559,6 +558,13 @@ document.addEventListener("DOMContentLoaded", function () {
       box.classList.toggle("nofont", isOn);
     });
     mainbnnset.classList.toggle("nofont", isOn);
+
+    prdcontainer.forEach(box => {
+      box.classList.toggle("nof", isOn);
+    });
+    mainbnnset.classList.toggle("nof", isOn);
+    meimg.classList.toggle("nof", isOn);
+
 
 
     label.textContent = isOn ? "DARK" : "BASIC";
@@ -791,7 +797,7 @@ li {
 }
 
 .nof{
-    filter: invert(100);
+    filter: invert(0.9);
 }
 .yesf{
       background: rgb(93, 93, 93) !important;
