@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Single+Day&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <title>박제중 이력서</title>
 </head>
 
@@ -14,6 +16,7 @@
   
         <!--<h1 id="pageTitle" class="logo">JAY RESUME</h1>-->
         <img class="logoimg" src="img/logo/mylogo2.png" alt="로고">
+        
         <nav>
           <ul id="mainnavlist" class="nav-list">
             <li><a id="ba" href="#basic">기본정보</a></li>
@@ -25,7 +28,7 @@
           </ul>
         </nav>
 </header>  
-<!--*********************다크모드 t스위치치*********************-->  
+<!--*********************다크모드*********************-->  
 <div class="switch-container">
     <span class="switch-label" id="switchState">BASIC</span>
     <label class="switch">
@@ -33,6 +36,34 @@
       <span class="slider"></span>
     </label>
   </div>
+  <img class="msgimg" src="img/msg.png" id="gomail" alt="메세지">
+<!--*********************메일*********************-->  
+  <div class="form-container" id="mailbox">
+    <div class="imgbox">
+        <img class="delimg" src="img/out.png" id="outmail" alt="나가기"> 
+    </div>
+
+    <h2>문의하기</h2>
+
+    <form id="contact-form" onsubmit="sendMail(event)">
+        <div class="inbox">
+            <div class="form-group">
+                <input type="text" name="from_name" id="name"  placeholder="이름 / 제목" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="reply_to" id="email" placeholder="본인 E-mail" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" id="message"placeholder="내용" required></textarea>
+            </div>
+            </div>
+            <div class="sendbox">
+            <button type="submit" id="sendmail">메일 보내기</button>
+        </div>
+    </form>
+</div>
+
+
 <!--*********************내용 main*********************-->  
 <body>
 <main>
@@ -569,6 +600,73 @@ document.querySelectorAll('.project-card').forEach(card => {
       }
     });
   });
+
+
+/*메일*/
+window.onload = function() {
+      emailjs.init("S4ttPLLqyr_01LcFU"); // ← EmailJS User ID로 교체
+    };
+
+    function sendMail(e) {
+     const gomail = document.getElementById("gomail");
+    const outmail = document.getElementById("outmail");
+    const mailbox = document.getElementById("mailbox");       
+      e.preventDefault();
+      console.log("폼 제출 시작"); // 디버깅용
+      emailjs.sendForm("service_a4q86qf", "template_ewp0kpx", "#contact-form")
+        .then(function(response) {
+          alert("메일이 성공적으로 전송되었습니다!");
+          document.getElementById("contact-form").reset();
+            mailbox.classList.add("hiding");
+            mailbox.classList.remove("active");          
+        }, function(error) {
+          alert("메일 전송에 실패했습니다.");
+          mailbox.classList.add("hiding");
+          mailbox.classList.remove("active");          
+          console.log(error);
+        });
+    }
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const gomail = document.getElementById("gomail");
+    const outmail = document.getElementById("outmail");
+    const mailbox = document.getElementById("mailbox");
+
+    let isOpen = false; // 현재 열림 상태를 추적
+
+    function openMailbox() {
+      mailbox.style.display = "block";
+      requestAnimationFrame(() => {
+        mailbox.classList.add("active");
+        mailbox.classList.remove("hiding");
+      });
+      isOpen = true;
+    }
+
+    function closeMailbox() {
+      mailbox.classList.add("hiding");
+      mailbox.classList.remove("active");
+      setTimeout(() => {
+        mailbox.style.display = "none";
+      }, 400);
+      isOpen = false;
+    }
+
+    gomail.addEventListener("click", function () {
+      if (isOpen) {
+        closeMailbox(); // 이미 열려있다면 닫기
+      } else {
+        openMailbox(); // 닫혀있다면 열기
+      }
+    });
+
+    outmail.addEventListener("click", function () {
+      if (isOpen) closeMailbox();
+    });
+  });
+
+
 </script>
 
 <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@스타일@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
@@ -1284,6 +1382,131 @@ section{
   background: rgb(0, 179, 255);
 }
 
+/*메일 보내기*/
+
+.form-container {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      width: 100%;
+      max-width: 500px;
+      position: fixed;
+      z-index: 99999999999999999999;
+      bottom: 5%;
+      right: 10%;
+    }
+
+    .form-container h2  {
+      padding-top: 10px;
+        margin-bottom: 30px;
+        margin-top: 0px;
+        font-size: 1.5em;
+        color: #333;
+        text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .inbox label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      font-size: 0.95em;
+    }
+
+    .inbox input {
+        font-family: "Single Day";
+        width: 100%;
+        padding: 14px 20px;
+        border-radius: 30px;
+        font-size: 1em;
+        border: none;
+        transition: border-color 0.3s;
+        background: #cfcfcf;
+        box-sizing: border-box;
+    }
+    .inbox textarea {
+        font-family: "Single Day";
+        width: 100%;
+        padding: 14px 20px;
+        border-radius: 10px;
+        font-size: 1em;
+        border: none;
+        transition: border-color 0.3s;
+        background: #cfcfcf;
+        box-sizing: border-box;
+        resize: none;
+        height: 200px;
+    }
+    .inbox input:focus, textarea:focus {
+      border-color: #3b82f6;
+      outline: none;
+    }
+
+
+    .sendbox button {
+    font-family: "Noto Sans KR";
+    padding: 12px 30px;
+    margin: 5px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 22px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    }
+    
+    .sendbox{
+        text-align: right;
+    }
+    .inbox{
+        text-align: center;
+        padding: 20px;
+    }
+    .imgbox{
+        text-align: right;  
+    }
+    button:hover {
+      background-color: #2563eb;
+    }
+    .delimg{
+        width: 32px; 
+        cursor: pointer;
+    }
+    .delimg:hover {
+        transform: scale(1.05) rotate(1deg);
+    }    
+    .msgimg {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 64px;
+        cursor: pointer;
+    }
+    .msgimg:hover {
+        transform: scale(1.05) rotate(1deg);
+    }
+        #mailbox {
+        display: none;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    #mailbox.active {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    #mailbox.hiding {
+        opacity: 0;
+        transform: translateY(30px);
+    }    
 
     
 /* 애니메이션 keyframes */
@@ -1398,7 +1621,10 @@ section{
   .intro-box {
     flex: 0 0 48%;
   }
- 
+  .form-container {
+        padding: 25px 20px;
+        max-width: 300px;
+  }
 }
 
 /* 반응형 phone*/
