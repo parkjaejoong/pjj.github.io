@@ -74,7 +74,7 @@
     <div class="dulogo section-basic fade-in-up">
     <div class="profile-container">
         <div class="profile-img">
-                <img src="img/me.png" alt="증명사진">
+                <img id="meimg" src="img/me.png" alt="증명사진">
         </div>
         <div>
             <div class="profile-info"><!--기본정보-->
@@ -533,7 +533,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const isOn = togglesw.checked;
 
     document.body.classList.toggle("yesf", isOn);
-    menubdv.classList.toggle("yesme", isOn);
+    menubdv.classList.toggle("yeslast", isOn);
  
 
     //아이디 찾아서
@@ -803,6 +803,9 @@ li {
 .yesme{
     background: rgb(73, 73, 73) !important;
     border-bottom: 1px solid #575757 !important;
+}
+.yesfont{
+  color: rgb(210, 210, 210) !important;
 }
 .yeslast{
     background: rgb(73, 73, 73) !important;
