@@ -10,7 +10,8 @@
 
 <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@html@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
-<!--*********************헤더*********************-->    
+
+<!--*********************헤더********************* -->    
 <div class="hamburger" id="menuToggle">☰</div> 
 <header id="menubar" class="menubar">
   
@@ -66,10 +67,9 @@
 
 <!--*********************내용 main*********************-->  
 <body>
-<main>
+
 <!--/////////////////기본정보/////////////////-->  
 <section id="basic">
-    <h2 class="section-title">기본정보</h2>  
     <div class="dulogo section-basic fade-in-up">
     <div class="profile-container">
         <div class="profile-img">
@@ -77,6 +77,7 @@
         </div>
         <div>
             <div class="profile-info"><!--기본정보-->
+              <h2>Basic information</h2>
                 <ul>
                     <li class="tagline2">이름 : 박제중</li>
                     <li class="tagline2">대학교 : 대구대학교</li>
@@ -89,6 +90,7 @@
         <p class="tagline">개발과 디자인 둘 다 가능한 D and D 설계자</p>
     </div>
 </section>
+<main>
  <!--/////////////////자격증/////////////////-->       
  <section id="cert" class="section-cert">
     <h2 class="section-title">자격증 및 수상</h2>
@@ -994,6 +996,11 @@ input:checked + .slider::before {
 
 
 /*-----------------------------------------sec1-----------------------------------------*/
+#basic{
+    max-width: 100% !important;
+    margin: 0 auto;
+    padding: 0rem !important;
+}
 .dulogo {
     background: url(img/logo/duimg.png) no-repeat;
     background-position-x: 98%;
@@ -1012,10 +1019,9 @@ section{
 }
 /* 섹션1 스타일 */
 .section-basic {
-  max-width: 1400px;
-  margin: 0 auto;
+  max-width: 100%;
   padding: 40px 20px;
-  border-radius: 16px;
+  border-radius: 0px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
