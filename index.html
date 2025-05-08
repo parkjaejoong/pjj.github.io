@@ -526,6 +526,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const stitle  = document.querySelectorAll(".section-title");
   const mainbnnset  = document.getElementById("basic");
   const meimg  = document.getElementById("meimg");
+  const mailbox  = document.getElementById("mailbox");
+  const sendbtt = document.querySelector(".sendbox button");
+  
 
   if (!togglesw || !logoImg) return;
 
@@ -571,6 +574,7 @@ document.addEventListener("DOMContentLoaded", function () {
     meimg.classList.toggle("nof", isOn);*/
     
     mainbnnset.classList.toggle("backchang", isOn);
+    mailbox.classList.toggle("nof", isOn);
 
     label.textContent = isOn ? "DARK" : "BASIC";
 
@@ -806,6 +810,7 @@ li {
   background-size: cover !important;
 
 }
+
 .nof{
     filter: invert(0.9);
 }
@@ -1553,6 +1558,7 @@ section{
         right: 20px;
         width: 64px;
         cursor: pointer;
+        z-index: 99999999999999;
     }
     .msgimg:hover {
         transform: scale(1.05) rotate(1deg);
