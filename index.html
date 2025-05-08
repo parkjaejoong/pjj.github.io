@@ -552,8 +552,13 @@ document.addEventListener("DOMContentLoaded", function () {
     introbox.forEach(box => {
       box.classList.toggle("yeslast", isOn);
     });
-
-
+    prdcontainer.forEach(box => {
+      box.classList.toggle("nofont", isOn);
+    });
+    prdcontainer.forEach(box => {
+      box.classList.toggle("nof", isOn);
+    });    
+/*
     prdcontainer.forEach(box => {
       box.classList.toggle("nofont", isOn);
     });
@@ -563,11 +568,12 @@ document.addEventListener("DOMContentLoaded", function () {
       box.classList.toggle("nof", isOn);
     });
     mainbnnset.classList.toggle("nof", isOn);
-    meimg.classList.toggle("nof", isOn);
-
-
+    meimg.classList.toggle("nof", isOn);*/
+    
+    mainbnnset.classList.toggle("backchang", isOn);
 
     label.textContent = isOn ? "DARK" : "BASIC";
+
 
     logoImg.src = isOn
       ? "img/logo/mylogo.png"
@@ -795,7 +801,11 @@ li {
 .yestitle{
       border-bottom: 2px solid #676767;
 }
+.backchang{
+  background: url(img/darkback.png) no-repeat !important;
+  background-size: cover !important;
 
+}
 .nof{
     filter: invert(0.9);
 }
