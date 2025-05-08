@@ -116,6 +116,9 @@
 </section>
 <!--/////////////////사용가능 스킬/////////////////-->   
 <section id="skill" >
+  <div class='wave -one'></div>
+  <div class='wave -two'></div>
+  <div class='wave -three'></div>
     <h2 class="section-title">Available Skills</h2>
     <div class="chaotic-skill">
         <div class="skill-grid">
@@ -137,7 +140,7 @@
                 </ul>
             </div>
             <div class="skill-block">
-                <h3>DV TOOL</h3>
+                <h3 class="wavefont">DV TOOL</h3>
                 <ul class="chaotic-list">
                     <li>Visual Studio Code</li>
                     <li>DBeaver</li>
@@ -147,7 +150,7 @@
                 </ul>
             </div>
             <div class="skill-block">
-              <h3>DESIGN TOOL</h3>
+              <h3 class="wavefont">DESIGN TOOL</h3>
               <ul class="chaotic-list">
                   <li>Figma</li>
                   <li>Adobe PS</li>
@@ -778,13 +781,12 @@ h2 {
 
 h3 {
   font-size: 1.6rem; /* 24px */
-  font-weight: blod;
+  font-weight: bold;
   margin-bottom: 20px;
 }
 
 h4 {
   font-size: 1.5rem; /* 20px */
-  font-weight: blod;
   margin-bottom: 12px;
 }
 
@@ -1226,6 +1228,67 @@ section{
 }
 
 
+.box {
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+  box-shadow: 0 2px 30px rgba(black, .2);
+  background: lighten(#f0f4c3, 10%);
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+
+.wave {
+  opacity: .4;
+  position: absolute;
+  top: 2462px;
+  left: 50%;
+  background: #0af;
+  width: 500px;
+  height: 500px;
+  margin-left: -250px;
+  margin-top: -250px;
+  transform-origin: 50% 48%;
+  border-radius: 43%;
+  animation: drift 3000ms infinite linear;
+}
+.wavefont{
+  z-index: 1;
+  text-align: center;
+  transform: translate3d(0, 0, 0);
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: .4em;
+  font-size: 24px;
+  text-shadow: 0 1px 0 rgba(black, .1);
+  text-indent: .3em;
+}
+.wave.-three {
+  animation: drift 5000ms infinite linear;
+}
+
+.wave.-two {
+  animation: drift 7000ms infinite linear;
+  opacity: .1;
+  background: yellow;
+}
+
+.box:after {
+  content: '';
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(#e8a, 1), rgba(#def, 0) 80%, rgba(white, .5));
+  z-index: 11;
+  transform: translate3d(0, 0, 0);
+}
+
+
 /*-----------------------------------------sec4-----------------------------------------*/
 
 
@@ -1638,7 +1701,15 @@ section{
     transform: translateY(0) rotateZ(0deg) scale(1);
   }
 }
-
+@keyframes drift {
+  from { transform: rotate(0deg); }
+  from { transform: rotate(360deg); }
+}
+@media (max-width: 1440px) {
+   .wave {
+      top: 2930px;
+    }    
+}
 
 @media (max-width: 1000px) {
     ::-webkit-scrollbar {
@@ -1657,10 +1728,13 @@ section{
         justify-content: space-around;
         align-items: center;
         flex-direction: column;
+    }    
+    .wave {
+      top: 2930px;
     }     
 }
 /* 반응형 기본 설정 */
-@media (max-width: 768px) {
+@media (max-width: 758px) {
 
     header h1 {
         display: none;
@@ -1698,7 +1772,7 @@ section{
         border-bottom: 1px solid var(--menu-font-color);
     }
 
-
+ 
   .intro-box {
     flex: 0 0 48%;
   }
@@ -1706,7 +1780,17 @@ section{
         padding: 25px 20px;
         max-width: 300px;
   }
+
+  .wave {
+      top: 3400px;
+    }    
 }
+@media (max-width: 716px) {
+  .wave {
+      top: 4300px;
+    } 
+}
+
 
 /* 반응형 phone*/
 @media (max-width: 650px) {
@@ -1751,10 +1835,17 @@ section{
       font-size: 1.3rem;
       margin-bottom: 1rem;
   }
-
+  .wave {
+    top: 4500px;
+  }
+  .wavefont {
+   color:var(--main-font-color);
+  }
 }
 
+@media (max-width: 555px) {
 
+}
 
 /*색선언*/
 :root {
