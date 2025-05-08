@@ -526,8 +526,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const stitle  = document.querySelectorAll(".section-title");
   const mainbnnset  = document.getElementById("basic");
   const meimg  = document.getElementById("meimg");
-  const mailbox  = document.getElementById("mailbox");
-  const sendbtt = document.querySelector(".sendbox button");
+ // const mailbox  = document.getElementById("mailbox");
+  //const sendbtt = document.querySelector(".sendbox button");
   
 
   if (!togglesw || !logoImg) return;
@@ -574,7 +574,7 @@ document.addEventListener("DOMContentLoaded", function () {
     meimg.classList.toggle("nof", isOn);*/
     
     mainbnnset.classList.toggle("backchang", isOn);
-    mailbox.classList.toggle("nof", isOn);
+   // mailbox.classList.toggle("nof", isOn);
 
     label.textContent = isOn ? "DARK" : "BASIC";
 
@@ -1730,8 +1730,14 @@ section{
     }
 
     .circle-item {
-      width: 360px;
-      height: 360px;
+      width: 340px;
+      height: 340px;
+    }
+    .circle h4{
+      font-size: 1.2rem;
+    }
+    .circle li{
+      font-size: 1rem;
     }
   .pj-content h3 {
       font-size: 1.3rem;
