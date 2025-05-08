@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Single+Day&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrows_more_down" />
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <title>박제중 이력서</title>
 </head>
@@ -70,7 +71,7 @@
 <body>
 
 <!--/////////////////기본정보/////////////////-->  
-<section id="basic">
+<section id="basic" data-aos="zoom-in">
     <div class="dulogo section-basic fade-in-up">
     <div class="profile-container">
         <div class="profile-img">
@@ -115,7 +116,7 @@
     </div>
 </section>
 <!--/////////////////사용가능 스킬/////////////////-->   
-<section id="skill" >
+<section id="skill">
   <div class='wave -one'></div>
   <div class='wave -two'></div>
   <div class='wave -three'></div>
@@ -181,7 +182,7 @@
 
 
  <!--/////////////////강점 및 장점/////////////////-->  
- <section id="career">
+ <section id="career" data-aos="zoom-in">
   <h2  class="section-title">Strengths</h2>
   <div class="circle-container">
     <div class="circle-item dvcircle ">
@@ -220,7 +221,7 @@
   </div>
 </section>
 <!--/////////////////프로젝트/////////////////-->   
-<section id="project">
+<section id="project" data-aos="fade-up">
  
     <h2 class="section-title">Project career</h2>
     <div class="project-wrapper">
@@ -372,7 +373,7 @@
         </div>
     </div>
 </section>
-<section id="intro"  class="introduction">
+<section id="intro"  class="introduction" data-aos="fade-right">
 <!--/////////////////자기소개서/////////////////-->
     <h2 class="section-title">A letter of self-introduction</h2>
     <div class="intro-section">
@@ -426,6 +427,7 @@
 </section>
 </main>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <!--*********************푸터*********************-->  
 <footer>
     <p>© 2025 JayResume Website. E-mail : pyg0107@naver.com </p>
@@ -435,7 +437,12 @@
 
 <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@스크립트@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 <script>
-
+  AOS.init();
+  AOS.init({
+  duration: 1500,  // 애니메이션 시간 (ms)
+  offset: 200,     // 시작 위치 (px)
+  once: true       // 스크롤 한번만 실행 (true), 계속 반복(false)
+});
     const toggle = document.getElementById("menuToggle");
     const menu = document.getElementById("menubar");
     const links = menu.querySelectorAll("a");
