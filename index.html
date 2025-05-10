@@ -101,7 +101,7 @@
 </section>
 <main>
  <!--/////////////////자격증/////////////////-->       
- <section id="cert" class="section-cert">
+ <section id="cert" class="section-cert" data-aos="zoom-in"> 
     <h2 class="section-title">Certificates and awards</h2>
     <div class="cert-grid">
         <div class="cert-card slide-in-left">
@@ -123,7 +123,7 @@
     </div>
 </section>
 <!--/////////////////사용가능 스킬/////////////////-->   
-<section id="skill">
+<section id="skill" data-aos="zoom-in">
   <div class='wave -one'></div>
   <div class='wave -two'></div>
   <div class='wave -three'></div>
@@ -448,7 +448,7 @@
   AOS.init();
   AOS.init({
   duration: 1500,  // 애니메이션 시간 (ms)
-  offset: 200,     // 시작 위치 (px)
+  offset: 400,     // 시작 위치 (px)
   once: true       // 스크롤 한번만 실행 (true), 계속 반복(false)
 });
 
@@ -932,7 +932,7 @@ li {
 .yesfont{
   color: rgb(210, 210, 210) !important;
 }
-.yeslast{
+.yeslast{.project-card:hover 
     background: rgb(73, 73, 73) !important;
     color: rgb(210, 210, 210) !important;
     border: 1px solid #575757 !important;
@@ -1321,6 +1321,10 @@ section{
   -webkit-background-clip: text;
   color: transparent;
 }
+.chaotic-list li:hover {
+    transform: scale(1.2) !important;
+    transition: transform 0.3s ease;
+}
 .chaotic-list li {
     font-size: 2rem;
     font-family: "Lexend", sans-serif;
@@ -1382,7 +1386,7 @@ section{
 .wave {
   opacity: .4;
   position: absolute;
-  top: 2500px;
+  top: 1025px;
   left: 50%;
   background: #0af;
   width: 500px;
@@ -1523,10 +1527,9 @@ section{
 }
 
 .project-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
 }
-
 .project-card.active {
   border: 2px solid #3f87ff
 }
@@ -1846,7 +1849,7 @@ section{
 }
 @media (max-width: 1440px) {
    .wave {
-    top: 2994px;
+    top: 1070px;
     }    
 }
 
@@ -1869,17 +1872,22 @@ section{
         flex-direction: column;
     }    
     .wave {
-      top: 3000px;
+      top: 1070px;
+    }
+}
+@media (max-width: 998px) {
+  .wave {
+      top:   1105px;
     }
 }
 @media (max-width: 950px) {
   .wave {
-      top: 3213px;
+      top:   1200px;
     }
 }
 @media (max-width: 778px) {
   .wave {
-    top: 3058px;
+    top: 1300px;
     }  
 }
 /* 반응형 기본 설정 */
@@ -1931,7 +1939,7 @@ section{
   }
 
   .wave {
-    top: 3703px;
+    top: 1355px
     }    
     .switch-container{
     top: 20px;
