@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--폰트-->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Single+Day&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <!--이미지-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrows_more_down" />
+    <!--에니메이션-->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!--이메일-->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>박제중 이력서</title>
+    <title>박제중 웹</title>
 </head>
 
 <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@html@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
@@ -86,7 +91,7 @@
                     <li class="tagline2">이름 : 박제중</li>
                     <li class="tagline2">대학교 : 대구대학교</li>
                     <li class="tagline2">전공 : 정보통신공학</li>
-                    <li class="tagline2">경력 : 3년 / 4년차 </li>
+                    <li class="tagline2">경력 : 4년차 </li>
                 </ul>
             </div>
         </div>
@@ -128,37 +133,38 @@
             <div class="skill-block">
                 <h3>FRONT</h3>
                 <ul class="chaotic-list"> 
-                    <li>JavaScript</li>
+                    <li class="jvs">JavaScript</li>
                     <li>jQuery</li>
-                    <li>CSS</li>
+                    <li class="cs">CSS</li>
+                    <li class="ht">HTML</li>
                 </ul>
             </div>
             <div class="skill-block">
                 <h3>BACK</h3>
                 <ul class="chaotic-list">
-                    <li>Java</li>
-                    <li>Oracle</li>
-                    <li>MySQL</li>
+                    <li >Java</li>
+                    <li class="orl">Oracle</li>
+                    <li class="msl">MySQL</li>
                     <li>PostgreSQL</li>
                 </ul>
             </div>
             <div class="skill-block">
-                <h3 class="wavefont">DV TOOL</h3>
+                <h3 id="dvtool" class="wavefont">DV TOOL</h3>
                 <ul class="chaotic-list">
-                    <li>Visual Studio Code</li>
+                    <li class="vs">Visual Studio Code</li>
                     <li>DBeaver</li>
                     <li>table plus</li>
                     <li>GitHub</li>
-                    <li>Toad</li>
+                    <li class="td">Toad</li>
                 </ul>
             </div>
             <div class="skill-block">
-              <h3 class="wavefont">DESIGN TOOL</h3>
+              <h3 id="dgtool" class="wavefont">DESIGN TOOL</h3>
               <ul class="chaotic-list">
-                  <li>Figma</li>
-                  <li>Adobe PS</li>
-                  <li>Adobe XD</li>
-                  <li>Adobe AL</li>
+                  <li class="fig">Figma</li>
+                  <li class="ps">Adobe PS</li>
+                  <li class="xd">Adobe XD</li>
+                  <li class="al">Adobe AL</li>
               </ul>
           </div>            
             <div class="skill-block">
@@ -445,23 +451,53 @@
   offset: 200,     // 시작 위치 (px)
   once: true       // 스크롤 한번만 실행 (true), 계속 반복(false)
 });
+
+
+
+
+
+
     const toggle = document.getElementById("menuToggle");
     const menu = document.getElementById("menubar");
     const links = menu.querySelectorAll("a");
-
     //@@@@ 온로드
         window.addEventListener('load', () => {
           document.querySelector(".curtain.left").classList.add("open");
           document.querySelector(".curtain.right").classList.add("open");
 
             window.scrollTo(0, 0);
+
         });
+
+
+
+        function removeWaveFontClass() {
+          const dvtool = document.getElementById('dvtool');
+          const dgtool = document.getElementById('dgtool');
+        if (window.innerWidth <= 716) {
+          document.querySelectorAll('.wavefont').forEach(el => {
+            el.classList.remove('wavefont');
+          });
+        }
+        else{
+          dvtool.classList.add('wavefont');
+          dgtool.classList.add('wavefont');
+        }
+      }
+
+      // 최초 로딩 시 실행
+      removeWaveFontClass();
+
+      // 리사이즈될 때도 실행
+      window.addEventListener('resize', removeWaveFontClass);
 
 
     //@@@@ 햄버거 클릭 시 열고 닫기
         toggle.addEventListener("click", () => {
         menu.classList.toggle("open");
         });
+
+
 
 
 //@@@@ 메뉴 항목 클릭 시 메뉴 닫기
@@ -831,7 +867,7 @@ h2 {
   text-align: center;
   margin-bottom: 60px;
   font-weight: bold;
-  border-bottom: 2px solid #eee;
+ /* border-bottom: 2px solid #eee; */
   padding-bottom: 1rem;
 }
 
@@ -1222,7 +1258,7 @@ section{
 /*-----------------------------------------sec3-----------------------------------------*/
 
 .chaotic-skill {
-  max-width: 1100px;
+  max-width: 1300px;
   margin: 0px auto;
   padding: 40px;
   text-align: center;
@@ -1241,11 +1277,56 @@ section{
   position: relative;
 }
 
-.chaotic-list li {
-    font-size: 1.5rem;
+.chaotic-skill h3 {
+    font-size: 1.6rem;
+    padding: 13px;
     font-weight: bold;
-    color: #ffffff;
-    background: var(--menu-font-color);
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.jvs{
+  color: #f0d01b;
+}
+.msl{
+  color: #0a72c1;
+}
+.orl{
+  color: #f91d1d;
+}
+.cs{
+  color: #7c1df9;
+}
+.ht{
+  color: rgb(255, 120, 16);
+}
+.xd{
+  color:rgb(225, 86, 167);
+}
+.ps{
+  color:rgb(70, 145, 232);
+}
+.al{
+  color: rgb(246, 178, 53);
+}
+.vs{
+  color:rgb(70, 145, 232);
+}
+.td{
+  color:#007941;
+}
+.fig{
+  background-image: linear-gradient(to right, rgb(255, 103, 33), rgb(209, 124, 98), rgb(143, 70, 238), rgb(64, 191, 255), rgb(76, 223, 147));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.chaotic-list li {
+    font-size: 2rem;
+    font-family: "Lexend", sans-serif;
+    font-weight: bold;
+  /*  color: #ffffff;
+    background: var(--menu-font-color); */
     border-radius: 8px;
     padding: 10px 20px;
     position: relative;
@@ -1301,7 +1382,7 @@ section{
 .wave {
   opacity: .4;
   position: absolute;
-  top: 2462px;
+  top: 2500px;
   left: 50%;
   background: #0af;
   width: 500px;
@@ -1765,7 +1846,7 @@ section{
 }
 @media (max-width: 1440px) {
    .wave {
-      top: 2930px;
+    top: 2994px;
     }    
 }
 
@@ -1788,8 +1869,18 @@ section{
         flex-direction: column;
     }    
     .wave {
-      top: 2930px;
-    }     
+      top: 3000px;
+    }
+}
+@media (max-width: 950px) {
+  .wave {
+      top: 3213px;
+    }
+}
+@media (max-width: 778px) {
+  .wave {
+    top: 3058px;
+    }  
 }
 /* 반응형 기본 설정 */
 @media (max-width: 758px) {
@@ -1840,7 +1931,7 @@ section{
   }
 
   .wave {
-      top: 3400px;
+    top: 3703px;
     }    
     .switch-container{
     top: 20px;
@@ -1851,7 +1942,7 @@ section{
     
 @media (max-width: 716px) {
   .wave {
-      top: 4300px;
+      display: none;
     } 
 }
 
@@ -1899,19 +1990,11 @@ section{
       font-size: 1.3rem;
       margin-bottom: 1rem;
   }
-  .wave {
-    top: 4500px;
-  }
-  .wavefont {
-   color:var(--main-font-color);
-  }
+ 
+
 }
 
-@media (max-width: 555px) {
-  .wave {
-    display: none;
-  }
-}
+
 
 /*색선언*/
 :root {
