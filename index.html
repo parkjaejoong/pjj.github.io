@@ -432,7 +432,7 @@
                 <br><br>
                 1. 시스템 구조, 보안 정책, 업무 프로세스를 철저히 이해하는 데 집중하겠습니다. 시스템은 보안성과 정확성이 핵심인 만큼, 안정적인 운영과 유지보수 역량을 먼저 탄탄히 다지는 것이 중요하다고 생각합니다. 또한 프론트엔드 개발 경험과 DB 설계 역량을 바탕으로 비대면 채널 고도화, 사용자 편의성 향상 프로젝트에 적극 참여하여 실질적인 성과를 만들어가겠습니다.
                 <br><br>
-                2. AI, 빅데이터 분석, 클라우드 기술 등 최신 IT 트렌드를 꾸준히 학습하고 자격증 및 사내 교육 과정을 통해 실무 적용 능력을 키워나갈 계획입니다. 이를 통해 고객 행동 데이터 분석, 맞춤형 금융 서비스 제공, 내부 시스템 자동화 등 미래 디지털 전략 수립 과정에 기술적 리더십으로 기여하고 싶습니다.
+                2. AI, 빅데이터 분석, 클라우드 기술 등 최신 IT 트렌드를 꾸준히 학습하고 자격증 및 사내 교육 과정을 통해 실무 적용 능력을 키워나갈 계획입니다. 이를 통해 고객 행동 데이터 분석, 맞춤형 서비스 제공, 내부 시스템 자동화 등 미래 디지털 전략 수립 과정에 기술적 리더십으로 기여하고 싶습니다.
                 <br><br>
                 3. 동료와의 협업과 소통 역량 역시 중요하다고 생각합니다. 다양한 직무의 구성원들과 원활히 협력하며 문제를 해결하는 경험을 쌓고, 장기적으로는 프로젝트 리딩이나 후배 양성 역할까지 맡을 수 있는 인재로 성장하고 싶습니다. 디지털 미래를 함께 설계하고 IT 전문가가 되겠습니다.
                 <br><br>
@@ -616,6 +616,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const introbox  = document.querySelectorAll(".intro-box");
   const stitle  = document.querySelectorAll(".section-title");
   const mainbnnset  = document.getElementById("basic");
+  const mainbnnset2  = document.getElementById("cert");
   const meimg  = document.getElementById("meimg");
  // const mailbox  = document.getElementById("mailbox");
   //const sendbtt = document.querySelector(".sendbox button");
@@ -649,6 +650,9 @@ document.addEventListener("DOMContentLoaded", function () {
     prdcontainer.forEach(box => {
       box.classList.toggle("nof", isOn);
     });    
+    cardBoxes.forEach(box => {
+      box.classList.toggle("yesfont", isOn);
+    }); 
 /*
     prdcontainer.forEach(box => {
       box.classList.toggle("nofont", isOn);
@@ -662,10 +666,11 @@ document.addEventListener("DOMContentLoaded", function () {
     meimg.classList.toggle("nof", isOn);*/
     
     mainbnnset.classList.toggle("backchang", isOn);
+    mainbnnset2.classList.toggle("backchang2", isOn);
    // mailbox.classList.toggle("nof", isOn);
 
     label.textContent = isOn ? "DARK" : "BASIC";
-
+    
 
     logoImg.src = isOn
       ? "img/logo/mylogo.png"
@@ -962,13 +967,17 @@ li {
   background-size: cover !important;
 
 }
+.backchang2{
+  background: url(img/back3.png) no-repeat !important;
+  background-size: cover !important;
 
+}
 .nof{
     filter: invert(0.9);
 }
 .yesf{
       background: rgb(93, 93, 93) !important;
-      color: rgb(210, 210, 210) ;
+      color: rgb(210, 210, 210) !important;
 }
 .yesb{
   color: #333 !important;
@@ -1322,7 +1331,7 @@ section{
     text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.6s ease, box-shadow 0.6s ease;
-    color: #f1f1f1;
+    color: #737373;
     opacity: 0;
 }
 
