@@ -96,13 +96,16 @@
             </div>
         </div>
     </div>
-        <p class="tagline ">개발과 디자인 둘 다 가능한 D and D 설계자</p>
+        <p class="tagline">개발과 디자인 둘 다 가능한 D and D 설계자</p>
     </div>
 </section>
-<main>
+
  <!--/////////////////자격증/////////////////-->       
- <section id="cert" class="section-cert" data-aos="zoom-in"> 
-    <h2 class="section-title">Certificates and awards</h2>
+ <section id="cert" class="section-cert " data-aos="zoom-in"> 
+  <div>
+    <h2 class="section-title section-title2">Certificates and awards</h2>
+    <p class="section-title3"> 자격증 및 수상내역을 확인하세요</p>
+    </div>
     <div class="cert-grid">
         <div class="cert-card fade-in-up">
             <h3>정보처리기사</h3>
@@ -121,6 +124,7 @@
             <img src="img/cert/cert2.png" alt="대학교 상장">
         </div>        
     </div>
+<main>    
 </section>
 <!--/////////////////사용가능 스킬/////////////////-->   
 <section id="skill" data-aos="zoom-in">
@@ -383,10 +387,20 @@
 </section>
 <section id="intro"  class="introduction" data-aos="fade-right">
 <!--/////////////////자기소개서/////////////////-->
+              <div class="sky">
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+              </div>
+
+              <div class="water">
+                <div class="wavewt"></div>
+                <div class="wavewt"></div>
+              </div>
     <h2 class="section-title">A letter of self-introduction</h2>
     <div class="intro-section">
         <div>
-            <!--목록-->
+
         </div>
         <div class="intro-box fade-in-up">
             <dt><h3>소개</h3></dt>
@@ -608,9 +622,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     stitle.forEach(box => {
       box.classList.toggle("yestitle", isOn);
-    });
-    cardBoxes.forEach(box => {
-      box.classList.toggle("yesme", isOn);
     });
     introbox.forEach(box => {
       box.classList.toggle("yeslast", isOn);
@@ -835,7 +846,7 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Pretendard', sans-serif;
+  font-family: 'Noto Sans KR','Pretendard', sans-serif;
   color: #333;
   line-height: 1.6;
   background: var(--mian-background);
@@ -1153,7 +1164,15 @@ input:checked + .slider::before {
     padding: 0rem !important;
     background: url(img/background.png) no-repeat;
     background-size: cover;
+    height: 100vh;
 }
+    .move-box {
+      position: absolute;
+      top: 600px;
+      width: 600px;
+      left: 0;
+      animation: moveRight 20s linear infinite;
+    }
 .dulogo {
     background: url(img/logo/duimg.png) no-repeat;
     background-position-x: 98%;
@@ -1172,12 +1191,15 @@ section{
 }
 /* 섹션1 스타일 */
 .section-basic {
-  max-width: 100%;
-  padding: 120px 40px 20px 20px;
-  border-radius: 0px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    display: flex;
+    max-width: 100%;
+    height: 100%;
+    padding: 10% 5%;
+    border-radius: 0px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    flex-direction: column;
+    justify-content: center;
 }
-
 /* 프로필 정보 */
 .profile-container {
     display: flex;
@@ -1204,10 +1226,12 @@ section{
 
 /* 태그라인 */
 .tagline {
-  margin-top: 40px;
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-align: center;
+    margin-top: 40px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    bottom: 10%;
 }
 .tagline2 {
   margin-top: 20px;
@@ -1217,6 +1241,33 @@ section{
 
 /*-----------------------------------------sec2-----------------------------------------*/
 /* 자격증 카드 레이아웃 */
+
+.section-title2 {
+    text-align: left !important;
+    padding-left: 10% !important;
+    margin-bottom: 10px !important;
+}
+.section-title3 {
+    text-align: left !important;
+    padding-left: 12% !important;
+    margin-bottom: 10px !important;
+    font-size: 1.2rem !important;
+    font-weight: bold !important;
+}
+
+.section-cert {
+    background: url(img/back2.png) no-repeat;
+    background-size: cover;
+    padding: 5rem 0;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
 .cert-grid {
   display: flex;
   justify-content: center;
@@ -1225,15 +1276,17 @@ section{
 }
 
 .cert-card {
-  width: 260px;
-  background: url(img/background.png) no-repeat;
-  background-size: cover;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0; /* 애니메이션 전 숨김 */
+    width: 260px;
+    /* background: url(img/background.png) no-repeat; */
+    background: #41414136;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+    color: #f1f1f1;
+    opacity: 0;
 }
 
 
@@ -1647,7 +1700,7 @@ section{
 /*스크롤바*/
 ::-webkit-scrollbar {
   width: 8px; 
-  height: 8px;
+  height: 0px;
 }
 
 /* 배경 */
@@ -1794,7 +1847,89 @@ section{
         transform: translateY(30px);
     }    
 
-    
+ /*구름 물*/
+ .sky {
+      background: linear-gradient(to top, #87ceeb, #ffffff);
+      height: 70%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cloud {
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+      width: 100px;
+      height: 60px;
+      top: 50px;
+      left: -200px;
+      animation: cloudMove 60s linear infinite;
+      box-shadow: 30px 0 #fff, 60px 10px #fff, 90px 0 #fff;
+      opacity: 0.8;
+    }
+
+    .cloud:nth-child(2) {
+      top: 120px;
+      animation-delay: 10s;
+      transform: scale(0.8);
+    }
+
+    .cloud:nth-child(3) {
+      top: 80px;
+      animation-delay: 20s;
+      transform: scale(1.2);
+    }
+
+    @keyframes cloudMove {
+      0% {
+        left: -250px;
+      }
+      100% {
+        left: 100vw;
+      }
+    }
+
+    .water {
+      position: relative;
+      background: linear-gradient(to top, #1e90ff, #00bfff);
+      height: 30%;
+      overflow: hidden;
+    }
+
+    .wavewt {
+      position: absolute;
+      width: 200%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      top: 0;
+      left: -50%;
+      border-radius: 100%;
+      opacity: 0.5;
+      animation: wavewtMove 8s ease-in-out infinite;
+    }
+
+    .wavewt:nth-child(1) {
+      height: 120%;
+      animation-delay: 0s;
+    }
+
+    .wavewt:nth-child(2) {
+      height: 100%;
+      animation-delay: 4s;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    @keyframes wavewtMove {
+      0% {
+        transform: translateX(0) translateY(0);
+      }
+      50% {
+        transform: translateX(25%) translateY(10px);
+      }
+      100% {
+        transform: translateX(0) translateY(0);
+      }
+    }   
 /* 애니메이션 keyframes */
 /*1*/
 @keyframes slideInLeft {
@@ -1847,12 +1982,29 @@ section{
   from { transform: rotate(0deg); }
   from { transform: rotate(360deg); }
 }
+
+@keyframes moveRight {
+      0% {
+        left: -100px; /* 시작은 화면 밖에서 */
+      }
+      100% {
+        left: 100vw; /* 오른쪽 끝까지 이동 */
+      }
+}
+
+
+
+
 @media (max-width: 1440px) {
    .wave {
     top: 1070px;
     }    
 }
-
+@media (max-width: 1347px) {
+  .section-cert {
+    height: auto;
+  }
+}
 @media (max-width: 1000px) {
     ::-webkit-scrollbar {
         width: 0px; 
