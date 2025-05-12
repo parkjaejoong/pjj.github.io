@@ -19,61 +19,61 @@
 <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@html@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 <div class="curtain left"></div>
 <div class="curtain right"></div>
-
+<div class="sb-1">
 <!--*********************헤더********************* -->    
-<div class="hamburger sb-1" id="menuToggle">☰</div> 
-<header id="menubar sb-1" class="menubar">
-  
-        <!--<h1 id="pageTitle" class="logo">JAY RESUME</h1>-->
-        <img class="logoimg " src="img/logo/mylogo2.png" alt="로고">
-        
-        <nav>
-          <ul id="mainnavlist" class="nav-list">
-            <li><a id="ba" href="#basic">기본정보</a></li>
-            <li><a id="ba1" href="#cert">자격증</a></li>
-            <li><a id="ba2"  href="#skill">사용가능 스킬</a></li>
-            <li><a id="ba3"  href="#career">장점</a></li>
-            <li><a id="ba4"  href="#project">프로젝트 경력</a></li>
-            <li><a id="ba5"  href="#intro">자기 소개서</a></li>
-          </ul>
-        </nav>
-</header>  
-<!--*********************다크모드*********************-->  
-<div class="switch-container sb-1">
-    <span class="switch-label" id="switchState">BASIC</span>
-    <label class="switch">
-      <input type="checkbox" id="toggleSwitch">
-      <span class="slider"></span>
-    </label>
-  </div>
-  <img class="msgimg sb-1" src="img/msg.png" id="gomail" alt="메세지">
-<!--*********************메일*********************-->  
-  <div class="form-container" id="mailbox">
-    <div class="imgbox">
-        <img class="delimg" src="img/out.png" id="outmail" alt="나가기"> 
+    <div class="hamburger" id="menuToggle">☰</div> 
+    <header id="menubar" class="menubar">
+      
+            <!--<h1 id="pageTitle" class="logo">JAY RESUME</h1>-->
+            <img class="logoimg" src="img/logo/mylogo2.png" alt="로고">
+            
+            <nav>
+              <ul id="mainnavlist" class="nav-list">
+                <li><a id="ba" href="#basic">기본정보</a></li>
+                <li><a id="ba1" href="#cert">자격증</a></li>
+                <li><a id="ba2"  href="#skill">사용가능 스킬</a></li>
+                <li><a id="ba3"  href="#career">장점</a></li>
+                <li><a id="ba4"  href="#project">프로젝트 경력</a></li>
+                <li><a id="ba5"  href="#intro">자기 소개서</a></li>
+              </ul>
+            </nav>
+    </header>  
+    <!--*********************다크모드*********************-->  
+    <div class="switch-container">
+        <span class="switch-label" id="switchState">BASIC</span>
+        <label class="switch">
+          <input type="checkbox" id="toggleSwitch">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <img class="msgimg" src="img/msg.png" id="gomail" alt="메세지">
+    <!--*********************메일*********************-->  
+      <div class="form-container" id="mailbox">
+        <div class="imgbox">
+            <img class="delimg" src="img/out.png" id="outmail" alt="나가기"> 
+        </div>
+
+        <h2>문의하기</h2>
+
+        <form id="contact-form" onsubmit="sendMail(event)">
+            <div class="inbox">
+                <div class="form-group">
+                    <input type="text" name="name" id="name"  placeholder="이름 / 제목" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" id="email" placeholder="본인 E-mail" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" id="message"placeholder="내용" required></textarea>
+                </div>
+                </div>
+                <div class="sendbox">
+                <button type="submit" id="sendmail">메일 보내기</button>
+            </div>
+        </form>
     </div>
 
-    <h2>문의하기</h2>
-
-    <form id="contact-form" onsubmit="sendMail(event)">
-        <div class="inbox">
-            <div class="form-group">
-                <input type="text" name="name" id="name"  placeholder="이름 / 제목" required>
-            </div>
-            <div class="form-group">
-                <input type="email" name="email" id="email" placeholder="본인 E-mail" required>
-            </div>
-            <div class="form-group">
-                <textarea name="message" id="message"placeholder="내용" required></textarea>
-            </div>
-            </div>
-            <div class="sendbox">
-            <button type="submit" id="sendmail">메일 보내기</button>
-        </div>
-    </form>
 </div>
-
-
 <!--*********************내용 main*********************-->  
 <body>
 
@@ -794,6 +794,22 @@ window.onload = function() {
 
 <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@스타일@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 <style>
+.sb-1 {
+  opacity: 0;
+  animation: fadeInSb 0.8s ease-in-out forwards;
+}
+.sb-2 {
+  opacity: 0;
+  animation: fadeInSb 1.2s ease-in-out forwards;
+}
+.sb-3 {
+  opacity: 0;
+  animation: fadeInSb 1.6s ease-in-out forwards;
+}
+.sb-4 {
+  opacity: 0;
+  animation: fadeInSb 2.0s ease-in-out forwards;
+}
 
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1200,22 +1216,6 @@ input:checked + .slider::before {
   color: var(--menu-font-color);
 }
 
-.sb-1 {
-  opacity: 0;
-  animation: fadeIn 0.8s ease-in-out forwards;
-}
-.sb-2 {
-  opacity: 0;
-  animation: fadeIn 1.2s ease-in-out forwards;
-}
-.sb-3 {
-  opacity: 0;
-  animation: fadeIn 1.6s ease-in-out forwards;
-}
-.sb-4 {
-  opacity: 0;
-  animation: fadeIn 2.0s ease-in-out forwards;
-}
 
 
 
@@ -1994,12 +1994,13 @@ section{
     }   
     
 /* 애니메이션 keyframes */
-@keyframes fadeIn {
+@keyframes fadeInSb {
   to {
     opacity: 1;
   }
 
 }
+
 
 /*1*/
 @keyframes slideInLeft {
