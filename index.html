@@ -21,11 +21,11 @@
 <div class="curtain right"></div>
 
 <!--*********************헤더********************* -->    
-<div class="hamburger" id="menuToggle">☰</div> 
-<header id="menubar" class="menubar">
+<div class="hamburger sb-1" id="menuToggle">☰</div> 
+<header id="menubar sb-1" class="menubar">
   
         <!--<h1 id="pageTitle" class="logo">JAY RESUME</h1>-->
-        <img class="logoimg" src="img/logo/mylogo2.png" alt="로고">
+        <img class="logoimg " src="img/logo/mylogo2.png" alt="로고">
         
         <nav>
           <ul id="mainnavlist" class="nav-list">
@@ -39,14 +39,14 @@
         </nav>
 </header>  
 <!--*********************다크모드*********************-->  
-<div class="switch-container">
+<div class="switch-container sb-1">
     <span class="switch-label" id="switchState">BASIC</span>
     <label class="switch">
       <input type="checkbox" id="toggleSwitch">
       <span class="slider"></span>
     </label>
   </div>
-  <img class="msgimg" src="img/msg.png" id="gomail" alt="메세지">
+  <img class="msgimg sb-1" src="img/msg.png" id="gomail" alt="메세지">
 <!--*********************메일*********************-->  
   <div class="form-container" id="mailbox">
     <div class="imgbox">
@@ -1200,6 +1200,22 @@ input:checked + .slider::before {
   color: var(--menu-font-color);
 }
 
+.sb-1 {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+.sb-2 {
+  opacity: 0;
+  animation: fadeIn 1.2s ease-in-out forwards;
+}
+.sb-3 {
+  opacity: 0;
+  animation: fadeIn 1.6s ease-in-out forwards;
+}
+.sb-4 {
+  opacity: 0;
+  animation: fadeIn 2.0s ease-in-out forwards;
+}
 
 
 
@@ -1976,7 +1992,15 @@ section{
         transform: translateX(0) translateY(0);
       }
     }   
+    
 /* 애니메이션 keyframes */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+
+}
+
 /*1*/
 @keyframes slideInLeft {
   from {
