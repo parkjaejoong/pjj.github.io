@@ -402,8 +402,57 @@
               </div>
     <h2 class="section-title">A letter of self-introduction</h2>
     <div class="intro-section">
+          <!-- 큐브들 -->
+          <div class="cube">
+            <div class="face1 front1"></div>
+            <div class="face1 back1"></div>
+            <div class="face1 right1"></div>
+            <div class="face1 left1"></div>
+            <div class="face1 top1"></div>
+            <div class="face1 bottom1"></div>
+          </div>
+          <div class="cube">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face right"></div>
+            <div class="face left"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+          </div>
+          <div class="cube">
+            <div class="facemain frontmain"></div>
+            <div class="facemain backmain"></div>
+            <div class="facemain rightmain"></div>
+            <div class="facemain leftmain"></div>
+            <div class="facemain topmain"></div>
+            <div class="facemain bottommain"></div>
+          </div>
+          <div class="cube">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face right"></div>
+            <div class="face left"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+          </div>
+          <div class="cube">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face right"></div>
+            <div class="face left"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+          </div>
+          <div class="cube">
+            <div class="facemain2 frontmain2"></div>
+            <div class="facemain2 backmain2"></div>
+            <div class="facemain2 rightmain2"></div>
+            <div class="facemain2 leftmain2"></div>
+            <div class="facemain2 topmain2"></div>
+            <div class="facemain2 bottommain2"></div>
+          </div>
         <div>
-
+        <!--큐브 끝-->
         </div>
         <div class="intro-box fade-in-up">
             <dt><h3>소개</h3></dt>
@@ -1732,10 +1781,11 @@ section{
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  position: relative;
 }
 
 .intro-box {
-  background: #fdfdfd;
+  background: #fdfdfd14;
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
@@ -1907,6 +1957,88 @@ section{
         opacity: 0;
         transform: translateY(30px);
     }    
+
+
+/*큐브*/
+.cube {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      transform-style: preserve-3d;
+      animation: spin 20s linear infinite;
+    }
+    .facemain {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: rgb(219 219 219 / 20%);
+      border: 1px solid rgb(255 255 255 / 10%);
+    }
+
+    .facemain2 {
+      position: absolute;
+      width: 300px;
+      height: 300px;   
+      background: rgb(219 219 219 / 20%);
+      border: 1px solid rgb(255 255 255 / 10%);
+    }
+
+    .face {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: rgb(219 219 219 / 20%);
+      border: 1px solid rgb(255 255 255 / 10%);
+    }
+    .face1 {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: rgb(219 219 219 / 20%);
+      border: 1px solid rgb(255 255 255 / 10%);
+    }
+
+    .front  { transform: translateZ(30px); }
+    .back   { transform: rotateY(180deg) translateZ(30px); }
+    .right  { transform: rotateY(90deg) translateZ(30px); }
+    .left   { transform: rotateY(-90deg) translateZ(30px); }
+    .top    { transform: rotateX(90deg) translateZ(30px); }
+    .bottom { transform: rotateX(-90deg) translateZ(30px); }
+
+    .front1  { transform: translateZ(60px); }
+    .back1  { transform: rotateY(180deg) translateZ(60px); }
+    .right1  { transform: rotateY(90deg) translateZ(60px); }
+    .left1   { transform: rotateY(-90deg) translateZ(60px); }
+    .top1    { transform: rotateX(90deg) translateZ(60px); }
+    .bottom1 { transform: rotateX(-90deg) translateZ(60px); }
+
+    .frontmain  { transform: translateZ(90px); }
+    .backmain   { transform: rotateY(180deg) translateZ(90px); }
+    .rightmain  { transform: rotateY(90deg) translateZ(90px); }
+    .leftmain   { transform: rotateY(-90deg) translateZ(90px); }
+    .topmain    { transform: rotateX(90deg) translateZ(90px); }
+    .bottommain { transform: rotateX(-90deg) translateZ(90px); }
+
+    .frontmain2  { transform: translateZ(150px); }
+    .backmain2   { transform: rotateY(180deg) translateZ(150px); }
+    .rightmain2  { transform: rotateY(90deg) translateZ(150px); }
+    .leftmain2   { transform: rotateY(-90deg) translateZ(150px); }
+    .topmain2    { transform: rotateX(90deg) translateZ(150px); }
+    .bottommain2 { transform: rotateX(-90deg) translateZ(150px); }
+
+
+    @keyframes spin {
+      from { transform: rotateX(0deg) rotateY(0deg); }
+      to   { transform: rotateX(360deg) rotateY(360deg); }
+    }
+
+    /* 여러 큐브 배치 */
+    .cube:nth-child(1)  { top: 10%; left: 20%; animation-delay: 0s; }
+    .cube:nth-child(2)  { top: 20%; left: 60%; animation-delay: 0s; }
+    .cube:nth-child(3)  { top: 50%; left: 40%; animation-delay: 0s; }
+    .cube:nth-child(4)  { top: 70%; left: 80%; animation-delay: 0s; }
+    .cube:nth-child(5)  { top: 80%; left: 20%; animation-delay: 0s; }
+    .cube:nth-child(6)  { top: 40%; left: 20%; animation-delay: 0s; }
 
  /*구름 물*/
  .sky {
