@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="an.css">
     <!--js 파일-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JAY WEB</title>
+    <title>박제중 웹</title>
 </head>
 
 <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@html@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
@@ -460,8 +460,8 @@
         <!--큐브 끝-->
         </div>
         <div class="intro-box fade-in-up">
-            <dt><h3>소개</h3></dt>
-            <dl>
+            <dt><h3 id="insth1">소개</h3></dt>
+            <dl class="showline1 fade-in-up active">
             2021년 1월부터 프리랜서로 활동하며, 저는 단순한 ‘디자인’이 아닌 사용자 경험 전체를 구조적으로 설계하고, 그것을 코드로 실현하는 UX 설계 기반의 풀스택 디자이너로 성장해왔습니다.
             <br>
             프로덕트 초기 기획 단계에서의 사용자 흐름 정의 부터 정보 구조 설계, 와이어프레임 및 로우·하이 피델리티 프로토타이핑(Figma, XD 등)까지 직접 주도하며, 기능 중심이 아닌 목표 지향적 인터페이스 설계에 집중해 왔습니다.
@@ -477,8 +477,8 @@
             </dl>
         </div>
         <div class="intro-box fade-in-up">
-            <dt><h3>목표</h3></dt>
-            <dl>
+            <dt><h3 id="insth2">목표</h3></dt>
+            <dl class="showline2 fade-in-up">
                 -DEV
                 <br><br>
                 디지털 혁신을 이끄는 핵심 IT 전문가로 성장하는 것입니다. 단순한 시스템 개발자가 아니라, 사용자 중심의 서비스를 기획하고, 데이터를 기반으로 한 디지털 전략을 기술적으로 실현할 수 있는 인재가 되는 것이 저의 방향입니다.
@@ -506,8 +506,8 @@
             </dl>           
         </div>
         <div class="intro-box fade-in-up">
-            <dt><h3>마무리 말</h3></dt>
-            <dl>
+            <dt><h3 id="insth3">마무리 말</h3></dt>
+            <dl class="showline3 fade-in-up">
                 업무에서 효과적인 개선방안을 마련하기 위해서는 <strong class="stwt">공감대 형성</strong>이 필수적입니다. 아무리 좋은 개선방안을 제시하더라도 공감이 되지 않으면 현실적으로 적용하기 어렵습니다. 저는 다양한 논의를 통해 공감 가능한 해결책을 도출하고, 이를 바탕으로 더욱 합리적인 개선 효과를 이끌어낸 경험이 있습니다.
                 <br><br>
                 공감은 단순한 감정적 이해를 넘어, 서로의 입장을 진정으로 이해하고 받아들이는 과정입니다. 이를 위해 필수적인 요소가 바로 경청입니다. 상대방이 누구든지, 윗사람뿐만 아니라 아랫사람의 의견도 경청하는 자세가 중요하다고 생각합니다. 저는 상대방의 이야기를 우선적으로 듣고, 이를 바탕으로 해결책을 고민하는 태도를 유지하고 있습니다. <strong class="stwt">경청</strong>을 통해 상대의 입장을 이해하고, 진정한 공감을 형성할 수 있기 때문입니다.
@@ -776,7 +776,6 @@ document.querySelectorAll('.project-card').forEach(card => {
 window.onload = function() {
       emailjs.init("S4ttPLLqyr_01LcFU"); // ← EmailJS User ID로 교체
     };
-
     function sendMail(e) {
      const gomail = document.getElementById("gomail");
     const outmail = document.getElementById("outmail");
@@ -836,10 +835,60 @@ window.onload = function() {
     });
   });
 
+/*sec6*/
+const headers = document.querySelectorAll('dt h3');
+const dls = document.querySelectorAll('.intro-box dl');
 
+  headers.forEach(header => {
+    header.addEventListener('click', function () {
+      // 모든 h3의 active 제거
+      headers.forEach(h => h.classList.remove('active'));
+      this.classList.add('active');
+
+      // 모든 dl의 active 제거 → opacity: 0 트리거
+      dls.forEach(dl => dl.classList.remove('active'));
+
+      // 500ms 후에 모두 display: none 처리 후, 타겟 보여주기
+      setTimeout(() => {
+        dls.forEach(dl => dl.style.display = 'none');
+
+        // 타겟 dl 보여주기
+        let targetDL;
+        if (this.id === 'insth1') targetDL = document.querySelector('.showline1');
+        if (this.id === 'insth2') targetDL = document.querySelector('.showline2');
+        if (this.id === 'insth3') targetDL = document.querySelector('.showline3');
+
+        if (targetDL) {
+          targetDL.style.display = 'block';
+          setTimeout(() => targetDL.classList.add('active'), 10); // fade-in
+        }
+      }, 500); // 이전 fade-out 끝나고 실행
+    });
+  });
 </script>
 
 <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@스타일@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 <style>
+    .intro-box dl {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
 
+    .intro-box dl.active {
+      display: block;
+      opacity: 1;
+    }
+
+    dt h3 {
+      cursor: pointer;
+    }
+    dt h3:hover {
+      scale: 1.01;
+      color: #40d7e2;
+    }
+    dt h3.active {
+      color: #40d7e2;
+      font-weight: bold;
+    }
 </style>
