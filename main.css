@@ -207,10 +207,10 @@ li {
 .yesfont{
   color: rgb(210, 210, 210) !important;
 }
-.yeslast{
-    background: rgb(73, 73, 73) !important;
+.yeslast {
+    background: rgb(48 48 48 / 58%) !important;
     color: rgb(210, 210, 210) !important;
-    border: 1px solid #575757 !important;
+    border: 0px !important;
 }
 .nofont{
       color: #333 !important;
